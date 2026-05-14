@@ -1,0 +1,33 @@
+footer {
+    margin: 85px auto 0px auto;
+    padding-block: 120px 30px;
+}
+
+.footer-wrapper,
+.footer-list-wrapper {
+    display: flex;
+    gap: 14px;
+}
+
+li {
+    justify-content: center;
+}
+
+.footer-link {
+    transition: all 0.2s;
+}
+
+.footer-link:hover {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+@media(max-width: 768px) {
+    .footer-wrapper,
+    .footer-list-wrapper {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 24px;
+        text-align: center;
+    }
+}
