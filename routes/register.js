@@ -1,35 +1,43 @@
-var express = require('express');
-var User = require('../models/User')
-var router = express.Router();
+const express = require('express');
+const User = require('../models/user');
+const router = express.Router();
 
-router.get('/', function (req, res, next) {
-    res.render('register', { error: {} });
+router.get('/', function(req, res, next) {
+    return res.render('register', { message: '' });
 });
 
-router.post('/', async function (req, res, next) {
-    try {
-        const { email, password, confirmPassword } = req.body;
+router.post('/', async function(req, res, next) {
+    const { email, password, confirmPassword } = req.body;
+    if ( password !== confirmPassword ) {
+        return res.render('register', { message: 'Passwords do not match'});
+    }
 
-        if (password !== confirmPassword) {
-            return res.status(400).render('register', {
-                error: {
-                    passwordsDontMatch: 1
-                }
-            });
+    if (password.length < 8) {
+        return res.render('register', { message: 'Password must be at least 8 characters'});
+    }
+
+    try {
+        const exists = await User.findOne({ email });
+        if (exists) {
+            return res.render('register', { message: 'Email already in use'});
         }
 
-        await User.create({ email, password });
+        const newUser = new User({
+            email,
+            password
+        })
 
-        return res.redirect('/');
-    } catch (err) {
-        var error = {};
+        await newUser.save();
 
-        error.emailTaken = err.code === 11000;
-        
-        error.passwordTooShort = err.errors?.password;
+        req.session.user = {
+            email
+        }
 
-        return res.status(400).render('register', { error });
+        return res.redirect('/blogs');
+    } catch (error) {
+        console.log(error);
+        return res.render('register', { message: 'Server error', error});
     }
-});
+})
 
 module.exports = router;
