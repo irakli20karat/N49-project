@@ -18,8 +18,7 @@ li {
 }
 
 .footer-link:hover {
-    font-weight: 500;
-    font-size: 18px;
+    opacity: 80%;
 }
 
 @media(max-width: 768px) {

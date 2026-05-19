@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Blog | Blogs</title>
     <link rel="stylesheet" href="./stylesheets/style.css">
-    <link rel="stylesheet" href="./stylesheets/auth.css">
+    <link rel="stylesheet" href="./stylesheets/blogs.css">
     <link rel="stylesheet" href="./stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sen:wght@400..800&display=swap" rel="stylesheet">
@@ -14,7 +15,101 @@
 <body>
 <%- include('partials/header') %>
 
-<h1> This Is blogs page </h1>
+<div class="container form-container">
+    <h1 class="title">THE BLOG</h1>
+</div>
+
+<div class="container form-container recent-section">
+    <p class="section-title">Recent blog posts</p>
+    <div class="recent-blog-posts">
+        <div class="main-recent-blog-post">
+            <figure class="main-image">
+                <img class="full-width-figure" src="images/tabletop.jpg">
+            </figure>
+            <div class="details">
+                <p class="details-header-title">
+                    Olivia Rhye • 1 Jan 2023
+                </p>
+                <p class="details-title-big">
+                    UX review presentations
+                </p>
+                <p class="details-description">
+                    How do you create compelling presentations that wow your colleagues and impress your managers?
+                </p>
+                <div class="blog-tags">
+                    <p class="tag-purple">Design</p>
+                    <p class="tag-blue">Research</p>
+                    <p class="tag-pink">Presentation</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent-blog-post-top">
+            <figure>
+                <img class="full-height-img" src="images/recent-r-top.jpg">
+            </figure>
+            <div class="details">
+                <p class="details-header-title">
+                    Phoenix Baker • 1 Jan 2023
+                </p>
+                <p class="details-title-small">
+                    Migrating to Linear 101
+                </p>
+                <p class="details-description">
+                    Linear helps streamline software projects, sprints, tasks, and bug tracking. Here’s how to get...
+                </p>
+                <div class="blog-tags">
+                    <p class="tag-blue">Design</p>
+                    <p class="tag-pink">Research</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="recent-blog-post-bottom">
+            <figure>
+                <img class="full-height-img" src="images/recent-r-bottom.jpg">
+            </figure>
+            <div class="details">
+                <p class="details-header-title">
+                    Lana Steiner • 1 Jan 2023
+                </p>
+                <p class="details-title-small">
+                    Building your API Stack
+                </p>
+                <p class="details-description">
+                    The rise of RESTful APIs has been met by a rise in tools for creating, testing, and manag...
+                </p>
+                <div class="blog-tags">
+                    <p class="tag-green">Design</p>
+                    <p class="tag-pink">Research</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="wide-recent-blog-post">
+            <figure>
+                <img class="full-height-img-2" src="images/recent-bottom.jpg">
+            </figure>
+            <div class="details">
+                <p class="details-header-title">
+                    Olivia Rhye • 1 Jan 2023
+                </p>
+                <p class="details-title-small">
+                    Grid system for better Design User Interface
+                </p>
+                <p class="details-description">
+                    A grid system is a design tool used to arrange content on a webpage. It is a series of vertical and horizontal lines that create a matrix of intersecting points, which can be used to align and organize page elements. Grid systems are used to create a consistent look and feel across a website, and can help to make the layout more visually appealing and easier to navigate.
+                </p>
+                <div class="blog-tags">
+                    <p class="tag-purple">Design</p>
+                    <p class="tag-pink">Research</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
 
 </body>
 </html>
